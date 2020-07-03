@@ -1,0 +1,15 @@
+micronaut:
+  application:
+    name: micronaut-property-issue
+  server:
+    port: 8089
+endpoints:
+  all:
+    path: /management
+    sensitive: false
+noop-cache.enabled: true
+
+whitelist:
+  scope:
+    - aUserName
+    - aUserName2
