@@ -14,8 +14,14 @@ public class PropertyTest {
     void getProperty_should_read_list_from_yaml_file() {
         ApplicationContext applicationContext = startApp();
 
-       Map test =  applicationContext.getProperty("whitelist", Map.class).get();
+        Map test =  applicationContext.getProperty("whitelist", Map.class).get();
 
+        // It does work in micronaut 1.3.6
+        // This fails in micronaut 2.0, this returns
+        // Map.of(
+        //   "scope[0]", "aUserName",
+        //  "scope[1]", "aUserName2",
+        //  "scope", asList("aUserName", "aUserName2")))
         assertEquals(test, Map.of("scope", asList("aUserName", "aUserName2")));
     }
 
